@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    width: 100%;
+}
+
+#boton {
+    display: flex;
+    width: 100%;
+} 
+
+#boton img {
+    width: 100%;
+
+}
