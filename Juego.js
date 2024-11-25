@@ -1,37 +1,35 @@
-// script.js
-
-const botones = document.querySelectorAll(".choice-img");
-const mensaje = document.getElementById("mensaje");
-const eleccionJugador = document.getElementById("eleccionJugador");
-const eleccionComputadora = document.getElementById("eleccionComputadora");
-
-const opciones = ["piedra", "papel", "tijera"];
-const imagenes = {
-    piedra: "piedra.png",
-    papel: "papel.png",
-    tijera: "tijera.png"
-};
-
-botones.forEach(boton => {
-    boton.addEventListener("click", (e) => {
-        const eleccionDelJugador = e.target.id;
-        const eleccionDeLaComputadora = opciones[Math.floor(Math.random() * 3)];
-
-        // Mostrar las elecciones de jugador y computadora con imágenes
-        eleccionJugador.innerHTML = `<strong>Tú elegiste:</strong> <img src="${imagenes[eleccionDelJugador]}" alt="${eleccionDelJugador}" width="50">`;
-        eleccionComputadora.innerHTML = `<strong>La computadora eligió:</strong> <img src="${imagenes[eleccionDeLaComputadora]}" alt="${eleccionDeLaComputadora}" width="50">`;
-
-        // Determinar el resultado
-        if (eleccionDelJugador === eleccionDeLaComputadora) {
-            mensaje.textContent = "¡Es un empate!";
-        } else if (
-            (eleccionDelJugador === "piedra" && eleccionDeLaComputadora === "tijera") ||
-            (eleccionDelJugador === "papel" && eleccionDeLaComputadora === "piedra") ||
-            (eleccionDelJugador === "tijera" && eleccionDeLaComputadora === "papel")
-        ) {
-            mensaje.textContent = "¡Ganaste!";
-        } else {
-            mensaje.textContent = "¡Perdiste!";
-        }
-    });
+document.getElementById("piedra").addEventListener("click", function() {
+    jugar("piedra");
 });
+document.getElementById("papel").addEventListener("click", function() {
+    jugar("papel");
+});
+document.getElementById("tijera").addEventListener("click", function() {
+    jugar("tijera");
+});
+
+function jugar(opcionUsuario) {
+    const opciones = ["piedra", "papel", "tijera"];
+    const opcionComputadora = opciones[Math.floor(Math.random() * 3)];
+    
+    let resultado = "";
+    
+    if (opcionUsuario === opcionComputadora) {
+        resultado = "Empate";
+    } else if (
+        (opcionUsuario === "piedra" && opcionComputadora === "tijera") ||
+        (opcionUsuario === "papel" && opcionComputadora === "piedra") ||
+        (opcionUsuario === "tijera" && opcionComputadora === "papel")
+    ) {
+        resultado = "¡Ganaste!";
+    } else {
+        resultado = "Perdiste";
+    }
+    
+    mostrarResultado(resultado, opcionUsuario, opcionComputadora);
+}
+
+function mostrarResultado(resultado, opcionUsuario, opcionComputadora) {
+    const ganador = document.getElementById("ganador");
+    ganador.textContent = `${resultado} (Tú: ${opcionUsuario} vs Computadora: ${opcionComputadora})`;
+}
