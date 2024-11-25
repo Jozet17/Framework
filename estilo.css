@@ -44,3 +44,8 @@ body {
     font-size: 28px;
     color: #FFD700;
 }
+
+#titulo {
+    color: #FFD700;
+    margin-bottom: 150px;
+}
