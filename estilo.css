@@ -20,7 +20,7 @@ body {
 #boton {
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
     gap: 50px;
 
 }
