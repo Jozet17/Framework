@@ -40,7 +40,7 @@ body {
 
 #ganador {
     font-weight: bold;
-    font-size: 28px;
+    font-size: 30px;
     color: #FFD700;
 }
 
@@ -59,5 +59,9 @@ input[type="password"] {
     border: 5px solid #09ff00; 
     border-radius: 5px; 
     background-color: rgba(255, 255, 255, 0.8); 
-    color: black; /* Color del texto */
+    color: black;
+}
+
+.hidden {
+    display: none;
 }
